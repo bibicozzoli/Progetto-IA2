@@ -1,85 +1,37 @@
-\# Stima della temperatura corporea tramite termografia infrarossa
+# Analisi predittiva della temperatura corporea mediante termografia facciale
 
-\#\# Descrizione del progetto
+Questo progetto di Machine Learning analizza due dataset clinici basati su **misure di temperatura facciale estratte da immagini termografiche infrarosse (IRT)**, con l’obiettivo di **stimare la temperatura corporea interna (orale)**.
 
-Questo progetto di Machine Learning analizza un dataset clinico basato su \*\*misure di temperatura facciale estratte da immagini termografiche infrarosse (IRT)\*\*, con l’obiettivo di \*\*stimare la temperatura corporea orale\*\*.
+## Dataset 1
 
-Il progetto è sviluppato in Python tramite notebook Jupyter e si concentra sull’analisi dei dati, sull’addestramento di modelli di regressione e sulla valutazione delle prestazioni predittive rispetto alla temperatura orale di riferimento.
+**Nome**: FLIR_groups1and2.csv  
 
-\---
+**Caratteristiche**: Il dataset include misurazioni termografiche facciali acquisite con una termocamera **FLIR A325sc** , temperature orali di riferimento, informazioni ambientali e dati demografici relativi a 1020 soggetti. 
+- Numero campioni: 1020
+- Numero features: 120
+- Target: aveOralM
 
-\#\# Dataset
+## Dataset 2
 
-Il dataset utilizzato proviene da uno \*\*studio clinico su oltre 1000 soggetti\*\*, descritto nell’articolo:
+**Nome**: ICI_groups1and2.csv
 
-\> Wang et al., \*Infrared Thermography for Measuring Elevated Body Temperature: Clinical Accuracy, Calibration, and Evaluation\*, Sensors, 2022\.
+**Caratteristiche**: Il dataset include misurazioni termografiche facciali acquisite con una termocamera **ICI 8640 P-series** , temperature orali di riferimento, informazioni ambientali e dati demografici relativi a 1009 soggetti. 
+- Numero campioni: 1009
+- Numero features: 120
+- Target: aveOralM
 
-\#\#\# Informazioni rilevanti sul dataset
+## Librerie Utilizzate
 
-\- Per ogni soggetto sono disponibili:  
-  \- una \*\*temperatura orale di riferimento\*\*, utilizzata come ground truth  
-  \- diverse \*\*misure di temperatura facciale\*\* ottenute tramite immagini termografiche  
-\- Le temperature facciali fanno riferimento a specifiche regioni del volto, tra cui:  
-  \- fronte  
-  \- fronte estesa  
-  \- angolo interno dell’occhio  
-  \- temperatura massima del volto  
-\- Le misurazioni sono state effettuate in condizioni controllate, con l’obiettivo di valutare l’utilizzo della termografia come tecnica \*\*non invasiva\*\* per la stima della temperatura corporea
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- scikit-learn
 
-\---
+## Come Eseguire
 
-\#\# Finalità dell’indagine
+1. Apri il notebook in Google Colab
+2. Esegui tutte le celle
 
-L’analisi ha come obiettivo principale:
-
-\- studiare la relazione tra \*\*temperature facciali\*\* e \*\*temperatura orale\*\*  
-\- valutare la possibilità di stimare la temperatura corporea a partire da misure termografiche  
-\- confrontare diversi approcci di \*\*regressione\*\* in termini di accuratezza predittiva
-
-\---
-
-\#\# Librerie utilizzate
-
-Il progetto è stato realizzato utilizzando le seguenti librerie:
-
-\- \`numpy\`  
-\- \`pandas\`  
-\- \`matplotlib\`  
-\- \`seaborn\`  
-\- \`sklearn.model\_selection\`  
-\- \`sklearn.decomposition\`  
-\- \`sklearn.preprocessing\`  
-\- \`sklearn.linear\_model\`  
-\- \`sklearn.ensemble\`  
-\- \`sklearn.metrics\`
-
-\---
-
-\#\# Analisi e metodologia 
-
-Nel notebook \`ProgettoIA2.ipynb\` vengono eseguite le seguenti fasi:
-
-\#\#\# 1\. Esplorazione dei dati  
-\- caricamento del dataset  
-\- analisi statistica delle variabili  
-\- analisi dei valori mancanti
-
-\#\#\# 2\. Preprocessing  
-\- gestione dei valori mancanti  
-\- selezione delle feature di input  
-\- suddivisione dataset  
-\- riduzione dimensionale tramite PCA  
-\- gestione variabili categoriche  
-\- analisi descrittiva dei set di dati finali
-
-\#\#\# 3\. Modellazione  
-\-  Scelta dei modelli di regressione: Lasso e Gradient Boosting  
-\- Addestramento  
-\- GroupKFold
-
-\#\#\# 4\. Valutazione  
-Le prestazioni dei modelli vengono valutate tramite:  
-\- \*\*Mean Squared Error (MSE)\*\*  
-\- \*\*Root Mean Squared Error (RMSE)\*\*  
-\- \*\*Mean Absolute Error (MAE)\*\*
-
+## Autori
+Beatrice Cozzoli, Federico Barletta
